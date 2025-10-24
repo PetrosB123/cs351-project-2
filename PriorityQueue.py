@@ -3,10 +3,11 @@ from typing import List
 
 class PriorityQueue():
     def __init__(self) -> None:
-        self._list: dict[IVertex, float] = {}
-        self._values: dict[IVertex, float] = {}
+        self._list: dict[IVertex, float] = {} # Actual thing that stores the queue
+        self._values: dict[IVertex, float] = {} # Remembers the data that has been in the queue
 
     def add(self, item: IVertex, priority: float) -> None:
+        # If the item being added is already in the list, make sure it is a better option than what is already there
         if item in self._list.keys():
             if self._list[item] > priority:
                 self._list[item] = priority
@@ -18,9 +19,7 @@ class PriorityQueue():
     def get_value(self, key: IVertex) -> float: return self._values[key]
     def set_value(self, key: IVertex, value: float) -> None: self._values[key] = value
 
-    def calculate_heuristic(self, item: IVertex, priority: float) -> float: 
-        return priority
-
+    # Return and remove the highest priority item from the queue
     def pop(self) -> IVertex:
         if  len(self._list) <= 0:
             raise IndexError("pop from empty PriorityQueue")

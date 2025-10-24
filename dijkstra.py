@@ -25,15 +25,16 @@ class Dijkstra(IAlgorithm):
         predecessor = {}
         current = None
 
+        # Add the starting vertex
         for vertex in graph.get_vertices():
             if vertex.get_name() == start_vertex_name:
                 queue.add(vertex, 0)
                 predecessor[vertex] = None
             else:
                 queue.set_value(vertex, 1000000)
-        
+
+        # Evaluate and return info from the algorithm
         def evaluate_path(finished: bool) -> AlgorithmResult:
-                execution_time = time.time() - start_time
                 directions = f" -> ".join(item.get_name() for item in path)
                 return AlgorithmResult(directions, distance, vertices_explored, edges_evaluated, execution_time, True)
         
@@ -42,7 +43,9 @@ class Dijkstra(IAlgorithm):
             current = queue.pop()
             explored.append(current)
 
+            # Find the destination, build the path
             if current.get_name() == destination_vertex_name:
+                execution_time = time.time() - start_time
                 distance = queue.get_value(current)
                 path = []
                 while current is not None:
@@ -52,6 +55,7 @@ class Dijkstra(IAlgorithm):
 
                 return evaluate_path(True)
             
+            # Find next edges and add the neighbors to the queue
             for edge in current.get_edges():
                 edges_evaluated += 1
                 neighbor = edge.get_destination()
@@ -59,7 +63,7 @@ class Dijkstra(IAlgorithm):
                     predecessor[neighbor] = current
                     queue.add(neighbor, queue.get_value(current) + edge.get_weight())
 
-
+        execution_time = time.time() - start_time
         return evaluate_path(False)
     
         

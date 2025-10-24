@@ -130,32 +130,97 @@ The program will:
 
 ## Example Output
 
+Example 1:
 ```
 Enter the start vertex name: Portland
+Enter the goal vertex name: Corvallis
+
+
+Greedy Best First Search:
+Portland -> Salem -> Corvallis
+Distance: 84.0
+Time Taken: 0.00014281272888183594
+Edges Evaluated: 7
+Vertices Explored: 3
+
+
+Dijkstra's Algorithm:
+Portland -> Salem -> Corvallis
+Distance: 84.0
+Time Taken: 0.00015282630920410156
+Edges Evaluated: 12
+Vertices Explored: 5
+
+
+A*:
+Portland -> Salem -> Corvallis
+Distance: 84.0
+Time Taken: 0.00010538101196289062
+Edges Evaluated: 9
+Vertices Explored: 4
+Run algorithms again?
+```
+
+
+Example 2:
+```
+Enter the start vertex name: Salem
 Enter the goal vertex name: Burns
-Greedy Best First Search
-Portland -> Hood_River -> The_Dalles -> Pendleton -> Ontario -> Madras -> Redmond -> Bend -> Burns
-Distance: 529.0
-Time Taken: 0.00018644332885742188
+
+
+Greedy Best First Search:
+Salem -> Eugene -> Bend -> Burns
+Distance: 324.0
+Time Taken: 0.00015664100646972656
+Edges Evaluated: 11
+Vertices Explored: 4
+
+
+Dijkstra's Algorithm:
+Salem -> Eugene -> Bend -> Burns
+Distance: 324.0
+Time Taken: 0.00017142295837402344
+Edges Evaluated: 52
+Vertices Explored: 21
+
+
+A*:
+Salem -> Eugene -> Bend -> Burns
+Distance: 324.0
+Time Taken: 0.00014066696166992188
+Edges Evaluated: 52
+Vertices Explored: 21
+Run algorithms again?
+```
+
+
+Example 3:
+```
+Enter the start vertex name: Astoria
+Enter the goal vertex name: Ashland
+
+
+Greedy Best First Search:
+Astoria -> Portland -> Salem -> Eugene -> Crater_Lake -> Medford -> Ashland
+Distance: 407.0
+Time Taken: 0.00017690658569335938
 Edges Evaluated: 19
-Vertices Explored: 9
+Vertices Explored: 7
 
 
-Dijkstra's Algorithm
-Portland -> Hood_River -> The_Dalles -> Madras -> Redmond -> Bend -> Burns
-Distance: 351.0
-Time Taken: 0.00020456314086914062
-Edges Evaluated: 53
-Vertices Explored: 22
+Dijkstra's Algorithm:
+Astoria -> Portland -> Salem -> Eugene -> Roseburg -> Medford -> Ashland
+Distance: 379.0
+Time Taken: 0.00023698806762695312
+Edges Evaluated: 51
+Vertices Explored: 20
 
 
-A*
-Portland -> Hood_River -> The_Dalles -> Madras -> Redmond -> Bend -> Burns
-Distance: 373.93369999999993
-Time Taken: 0.000156402587890625
-Edges Evaluated: 53
-Vertices Explored: 22
-
-
+A*:
+Astoria -> Portland -> Salem -> Eugene -> Roseburg -> Medford -> Ashland
+Distance: 379.0
+Time Taken: 0.00016260147094726562
+Edges Evaluated: 51
+Vertices Explored: 20
 Run algorithms again?
 ```

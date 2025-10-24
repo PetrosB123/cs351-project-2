@@ -41,6 +41,7 @@ def read_graph(file_path: str, file_path2: str) -> IGraph:
                 v1.add_edge(edge)
                 graph.add_edge(edge)
             
+            # Store the vertices_v1.txt here
             for line in f2:
                 l = line.split(",")
                 vertex_data[l[0]] = [float(l[1]), float(l[2])]
@@ -59,6 +60,7 @@ def main() -> None:
         start_name = False
         goal_name = False
 
+        # Make sure input is actually valid vertices
         for vertex in graph.get_vertices():
             if vertex.get_name() == start_vertex_name:
                 start_name = True
@@ -70,15 +72,16 @@ def main() -> None:
             raise ValueError("Must input a valid vertex name")
 
 
+        # run the input for all three algorithms and print them out
         for algorithm in algorithms:
             results = algorithm.find_path(graph, start_vertex_name, goal_vertex_name, vertex_data) # type: ignore
-            print(algorithm.get_name())
+            print("\n")
+            print(f"{algorithm.get_name()}:")
             print(results.textual_directions)
             print(f"Distance: {results.total_distance}")
             print(f"Time Taken: {results.execution_time}")
             print(f"Edges Evaluated: {results.edges_evaluated}")
             print(f"Vertices Explored: {results.vertices_explored}")
-            print("\n")
 
         if input("Run algorithms again?").lower() in ["n", "no"]:
             running = False
