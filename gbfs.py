@@ -4,6 +4,7 @@ from graph_interfaces import IGraph, IVertex, IEdge
 import time
 from PriorityQueue import PriorityQueue
 from typing import List
+from haversine import haversine_distance
 
 class GreedyBestFirstSearch(IAlgorithm):
     def __init__(self):
@@ -29,7 +30,7 @@ class GreedyBestFirstSearch(IAlgorithm):
         # Add the starting vertex
         for vertex in graph.get_vertices():
             if vertex.get_name() == start_vertex_name:
-                queue.add(vertex, abs(vertex_data[vertex.get_name()][0] - vertex_data[destination_vertex_name][0]) + abs(vertex_data[vertex.get_name()][1] - vertex_data[destination_vertex_name][1]))
+                queue.add(vertex, haversine_distance(vertex_data[vertex.get_name()][0], vertex_data[vertex.get_name()][1], vertex_data[destination_vertex_name][0], vertex_data[destination_vertex_name][1]))
                 predecessor[vertex] = None
                 g_score[vertex] = 0
 
@@ -61,7 +62,7 @@ class GreedyBestFirstSearch(IAlgorithm):
                 if neighbor not in explored:
                     g_score[neighbor] = g_score[current] + edge.get_weight()
                     predecessor[neighbor] = current
-                    queue.add(neighbor, abs(vertex_data[neighbor.get_name()][0] - vertex_data[destination_vertex_name][0]) + abs(vertex_data[neighbor.get_name()][1] - vertex_data[destination_vertex_name][1]))
+                    queue.add(neighbor, haversine_distance(vertex_data[neighbor.get_name()][0], vertex_data[neighbor.get_name()][1], vertex_data[destination_vertex_name][0], vertex_data[destination_vertex_name][1]))
 
         execution_time = time.time() - start_time
         return evaluate_path(False)

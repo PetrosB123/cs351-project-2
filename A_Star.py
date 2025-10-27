@@ -4,6 +4,7 @@ from graph_interfaces import IGraph, IVertex, IEdge
 import time
 from PriorityQueue import PriorityQueue
 from typing import List
+from haversine import haversine_distance
 
 class A_Star(IAlgorithm):
     def __init__(self):
@@ -31,7 +32,7 @@ class A_Star(IAlgorithm):
             g_score[vertex] = float('inf')
             if vertex.get_name() == start_vertex_name:
                 g_score[vertex] = 0
-                queue.add(vertex, abs(vertex_data[vertex.get_name()][0] - vertex_data[destination_vertex_name][0]) + abs(vertex_data[vertex.get_name()][1] - vertex_data[destination_vertex_name][1]))
+                queue.add(vertex, haversine_distance(vertex_data[vertex.get_name()][0], vertex_data[vertex.get_name()][1], vertex_data[destination_vertex_name][0], vertex_data[destination_vertex_name][1]))
                 predecessor[vertex] = None
             else:
                 queue.set_value(vertex, float('inf'))
@@ -66,7 +67,7 @@ class A_Star(IAlgorithm):
                 if tentative_g < g_score[neighbor]:
                     g_score[neighbor] = tentative_g
                     predecessor[neighbor] = current
-                    f_score = tentative_g + abs(vertex_data[neighbor.get_name()][0] - vertex_data[destination_vertex_name][0]) + abs(vertex_data[neighbor.get_name()][1] - vertex_data[destination_vertex_name][1])
+                    f_score = tentative_g + haversine_distance(vertex_data[neighbor.get_name()][0], vertex_data[neighbor.get_name()][1], vertex_data[destination_vertex_name][0], vertex_data[destination_vertex_name][1])
                     queue.add(neighbor, f_score)
 
         return evaluate_path(False)

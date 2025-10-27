@@ -139,7 +139,7 @@ Enter the goal vertex name: Corvallis
 Greedy Best First Search:
 Portland -> Salem -> Corvallis
 Distance: 84.0
-Time Taken: 0.00014281272888183594
+Time Taken: 0.0002033710479736328
 Edges Evaluated: 7
 Vertices Explored: 3
 
@@ -147,7 +147,7 @@ Vertices Explored: 3
 Dijkstra's Algorithm:
 Portland -> Salem -> Corvallis
 Distance: 84.0
-Time Taken: 0.00015282630920410156
+Time Taken: 5.936622619628906e-05
 Edges Evaluated: 12
 Vertices Explored: 5
 
@@ -155,9 +155,9 @@ Vertices Explored: 5
 A*:
 Portland -> Salem -> Corvallis
 Distance: 84.0
-Time Taken: 0.00010538101196289062
-Edges Evaluated: 9
-Vertices Explored: 4
+Time Taken: 0.00014734268188476562
+Edges Evaluated: 7
+Vertices Explored: 3
 Run algorithms again?
 ```
 
@@ -171,7 +171,7 @@ Enter the goal vertex name: Burns
 Greedy Best First Search:
 Salem -> Eugene -> Bend -> Burns
 Distance: 324.0
-Time Taken: 0.00015664100646972656
+Time Taken: 0.0002205371856689453
 Edges Evaluated: 11
 Vertices Explored: 4
 
@@ -179,7 +179,7 @@ Vertices Explored: 4
 Dijkstra's Algorithm:
 Salem -> Eugene -> Bend -> Burns
 Distance: 324.0
-Time Taken: 0.00017142295837402344
+Time Taken: 0.00026035308837890625
 Edges Evaluated: 52
 Vertices Explored: 21
 
@@ -187,9 +187,9 @@ Vertices Explored: 21
 A*:
 Salem -> Eugene -> Bend -> Burns
 Distance: 324.0
-Time Taken: 0.00014066696166992188
-Edges Evaluated: 52
-Vertices Explored: 21
+Time Taken: 0.00016188621520996094
+Edges Evaluated: 23
+Vertices Explored: 8
 Run algorithms again?
 ```
 
@@ -201,17 +201,17 @@ Enter the goal vertex name: Ashland
 
 
 Greedy Best First Search:
-Astoria -> Portland -> Salem -> Eugene -> Crater_Lake -> Medford -> Ashland
-Distance: 407.0
-Time Taken: 0.00017690658569335938
-Edges Evaluated: 19
-Vertices Explored: 7
+Astoria -> Portland -> Newport -> Florence -> Coos_Bay -> Roseburg -> Medford -> Ashland
+Distance: 508.0
+Time Taken: 0.0002536773681640625
+Edges Evaluated: 20
+Vertices Explored: 8
 
 
 Dijkstra's Algorithm:
 Astoria -> Portland -> Salem -> Eugene -> Roseburg -> Medford -> Ashland
 Distance: 379.0
-Time Taken: 0.00023698806762695312
+Time Taken: 0.0001404285430908203
 Edges Evaluated: 51
 Vertices Explored: 20
 
@@ -219,8 +219,8 @@ Vertices Explored: 20
 A*:
 Astoria -> Portland -> Salem -> Eugene -> Roseburg -> Medford -> Ashland
 Distance: 379.0
-Time Taken: 0.00016260147094726562
-Edges Evaluated: 51
-Vertices Explored: 20
+Time Taken: 0.000209808349609375
+Edges Evaluated: 37
+Vertices Explored: 14
 Run algorithms again?
 ```
